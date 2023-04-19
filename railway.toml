@@ -1,7 +1,0 @@
-[build]
-builder = "dockerfile"
-dockerfilePath = "./DocShareAPI/Dockerfile"
-
-[deploy]
-startCommand = "dotnet DocShareAPI.dll"
-restartPolicyType = "never"
