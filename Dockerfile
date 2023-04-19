@@ -5,16 +5,17 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["BallApp.csproj", "./"]
-RUN dotnet restore "BallApp.csproj"
+COPY ["DocShareAPI.csproj", "./"]
+RUN dotnet restore "DocShareAPI.csproj"
 COPY . .
 WORKDIR "/src/"
-RUN dotnet build "BallApp.csproj" -c Release -o /app/build
+RUN dotnet build "DocShareAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "BallApp.csproj" -c Release -o /app/publish
+RUN dotnet publish "DocShareAPI.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "DocShareAPI.dll"]
+
