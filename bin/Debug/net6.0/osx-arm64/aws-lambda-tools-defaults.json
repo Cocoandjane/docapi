@@ -1,0 +1,10 @@
+{
+    "profile": "",
+    "region": "us-west-2",
+    "configuration": "Release",
+    "function-architecture": "x86_64",
+    "function-runtime": "dotnet6",
+    "function-memory-size": 1024,
+    "function-timeout": 30,
+    "function-handler": "DocShareAPI"
+  }
